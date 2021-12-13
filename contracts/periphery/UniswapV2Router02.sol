@@ -38,7 +38,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         uint amountAMin,
         uint amountBMin
     ) internal virtual returns (uint amountA, uint amountB) {
-        // create the pair if it doesn't exist yet
+        // check if the pair exists yet
         require (IUniswapV2Factory(factory).getPair(tokenA, tokenB) != address(0));
 
         (uint reserveA, uint reserveB) = UniswapV2Library.getReserves(factory, tokenA, tokenB);
